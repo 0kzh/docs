@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://api.htmldocs.com/v1/api"
     }
   ],
   "security": [
@@ -19,54 +19,33 @@
     }
   ],
   "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
+    "/generate": {
       "post": {
-        "description": "Creates a new plant in the store",
+        "description": "Generate a new PDF document from a project template.",
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Parameters to generate a document",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "type": "object",
+                "properties": {
+                  "projectId": {
+                    "type": "string",
+                    "description": "The project ID (ex. 123e4567e89b12d3a456426655440000)",
+                    "example": "123e4567e89b12d3a456426655440000"
+                  },
+                  "path": {
+                    "type": "string",
+                    "description": "The path to the .html file to render (ex. index.html)",
+                    "example": "index.html"
+                  },
+                  "context": {
+                    "type": "object",
+                    "description":
+                      "A dictionary that maps variables defined in the document to values to be substituted. \n For example, {{name}} will be replaced with the value of context['name']."
+                  }
+                },
+                "required": ["projectId", "path", "context"]
               }
             }
           },
@@ -74,47 +53,16 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Document generation response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "type": "string",
+                  "description": "The URL to the generated PDF document",
+                  "example": "https://htmldocs.s3.amazonaws.com/path/to/result.pdf"
                 }
               }
             }
-          },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
           },
           "400": {
             "description": "unexpected error",
@@ -132,42 +80,6 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
-          }
-        ]
-      },
       "Error": {
         "required": [
           "error",

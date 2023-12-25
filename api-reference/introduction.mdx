@@ -1,33 +1,18 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'Getting started with the htmldocs API'
 ---
-
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
 
 ## Welcome
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+The htmldocs API allows you to programatically generate PDF documents like invoices, reports, and forms. 
+The API is built around REST principles. It uses resource-oriented URLs that are predictable, accepts form-encoded request bodies, and returns responses encoded in JSON. It also utilizes standard HTTP response codes, authentication, and verbs.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+To authenticate requests, the htmldocs API employs API keys. These keys can be managed and viewed in the [htmldocs dashboard](https://htmldocs.com/projects).
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+Bearer tokens are used for authentication, which can be set via the `Authorization` header.
+
+Given the extensive privileges your API keys hold, it's crucial to keep them safe! Avoid sharing your secret API keys in areas that are publicly accessible, like GitHub, client-side code, etc.
+
