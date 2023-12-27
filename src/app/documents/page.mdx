@@ -1,0 +1,145 @@
+export const metadata = {
+  title: 'Documents',
+  description:
+    'Generate a new PDF document from a project template.',
+}
+
+# Documents
+
+Generate a new PDF document from a project template. This allows you to programatically generate various types of documents such as invoices, reports, and forms. By using a project template, you can customize the layout and content of your document. This is useful for businesses that need to generate a large number of similar documents with different data. To create a document, visit the [dashboard](https://htmldocs.com/projects). {{ className: 'lead' }}
+
+---
+
+## Generate a document {{ tag: 'POST', label: '/v1/api/generate' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to generate a new document from a project template, allowing for custom values for variables in your code. The generated document will be returned as a URL to a PDF file.
+
+    ### Authorizations
+
+    <Properties>
+      <Property name="Authorization" type={["string", "header", "required"]}>
+        Bearer authentication header of the form Bearer `<token>`, where `<token>` is your auth token.
+      </Property>
+    </Properties>
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="projectId" type="string">
+        The project ID (ex. <code>123e4567e89b12d3a456426655440000</code>)
+      </Property>
+      <Property name="path" type="string">
+        The path to the .html file to render (ex. <code>index.html</code>)
+      </Property>
+      <Property name="context" type="object">
+        A dictionary that maps variables defined in the document to values to be substituted.
+        For example, <code>{'{{name}}'}</code> will be replaced with the value of <code>context['name']</code>.
+      </Property>
+    </Properties>
+
+    ### Response attributes
+    <Properties>
+      <Property name="url" type="string">
+        The URL of the generated document.
+      </Property>
+      <Property name="error" type="string | null">
+        The error message, if any.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/v1/api/generate">
+
+    ```bash {{ title: 'cURL' }}
+    curl --request POST \
+         --url https://api.htmldocs.com/v1/api/generate \
+         --header 'Authorization: <authorization>' \
+         --header 'Content-Type: application/json' \
+         --data '{
+           "context": {},
+           "path": "index.html",
+           "projectId": "123e4567e89b12d3a456426655440000"
+         }'
+    ```
+
+    ```js
+    const options = {
+      method: 'POST',
+      headers: {Authorization: '<authorization>', 'Content-Type': 'application/json'},
+      body: '{"context":{},"path":"index.html","projectId":"123e4567e89b12d3a456426655440000"}'
+    };
+
+    fetch('https://api.htmldocs.com/v1/api/generate', options)
+      .then(response => response.json())
+      .then(response => console.log(response))
+      .catch(err => console.error(err));
+    ```
+
+    ```python
+    import requests
+
+    url = "https://api.htmldocs.com/v1/api/generate"
+
+    payload = {
+        "context": {},
+        "path": "index.html",
+        "projectId": "123e4567e89b12d3a456426655440000"
+    }
+    headers = {
+        "Authorization": "<authorization>",
+        "Content-Type": "application/json"
+    }
+
+    response = requests.request("POST", url, json=payload, headers=headers)
+
+    print(response.json())
+    ```
+
+    ```php
+    <?php
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, [
+      CURLOPT_URL => "https://api.htmldocs.com/v1/api/generate",
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => "",
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 30,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => "POST",
+      CURLOPT_POSTFIELDS => "{\n  \"context\": {},\n  \"path\": \"index.html\",\n  \"projectId\": \"123e4567e89b12d3a456426655440000\"\n}",
+      CURLOPT_HTTPHEADER => [
+        "Authorization: <authorization>",
+        "Content-Type: application/json"
+      ],
+    ]);
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+
+    curl_close($curl);
+
+    if ($err) {
+      echo "cURL Error #:" . $err;
+    } else {
+      echo $response;
+    }
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "url": "https://htmldocs.s3.amazonaws.com/path/to/result.pdf",
+      "error": null
+    }
+    ```
+
+  </Col>
+</Row>
