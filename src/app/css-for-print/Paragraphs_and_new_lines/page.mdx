@@ -1,24 +1,35 @@
+import pExample from '@/images/css-for-print/paragraphs.png'
+import brExample from '@/images/css-for-print/linebreak.png'
+import textAlignExample from '@/images/css-for-print/align.png'
+import lineHeightExample from '@/images/css-for-print/lineheight.png'
+import textIndentExample from '@/images/css-for-print/textindent.png'
+import pMarginsExample from '@/images/css-for-print/paragraph-margins.png'
+import textWrapExample from '@/images/css-for-print/textwrapping.png'
+
 export const metadata = {
   title: 'Paragraphs and new lines',
   description:
-    'In this guide, we will look at how to work with paginated responses when querying the Protocol API',
+    'A simple guide to working with paragraphs and line breaks in HTML and CSS for PDF documents and print.',
 }
 
 # Paragraphs and New Lines in HTML/CSS
 
 This guide shows you how to create paragraphs and line breaks in HTML and CSS. Paragraphs and line breaks help organize and format text for readability, and are the building blocks of web and print content.
 
-### 1. Paragraphs in HTML
+## Paragraphs in HTML
 
 In HTML, the `<p>` tag is used to define a paragraph. This tag automatically creates some space before and after itself, which is the default paragraph spacing. However, you can modify this spacing as well as other properties using CSS.
 
+<img src={pExample.src} />
 
 
-### 2. New Lines in HTML
+## New Lines in HTML
 
 To create a new line within a paragraph or in other elements, you can use the `<br>` tag in HTML. This tag inserts a single line break.
 
-### 3. Paragraph Alignment
+<img src={brExample.src} />
+
+## Paragraph Alignment
 
 You can align paragraphs using the `text-align` property in CSS. This property can take values like `left`, `right`, `center`, or `justify`. For example:
 
@@ -28,9 +39,16 @@ p {
 }
 ```
 
-This CSS rule will center-align all text within paragraph tags.
+The above CSS property will apply to **all** `p` tags. <br/>
+To only set it for a single element, you can set it inline using the `style` attribute:
 
-### 4. Line Height
+```html
+<p style="text-align: center">This paragraph is center-aligned.</p>
+```
+
+<img src={textAlignExample.src} />
+
+## Line Height
 
 Line height, or the space between lines in a paragraph, is critical for readability. CSS's `line-height` property is used for this purpose. It can be specified in different units like pixels (`px`), em units (`em`), or even as a number (which acts as a multiplier of the current font size). For example:
 
@@ -42,7 +60,9 @@ p {
 
 This rule sets the line height to 1.5 times the font size of the paragraph.
 
-### 5. Paragraph Spacing
+<img src={lineHeightExample.src} />
+
+## Paragraph Spacing
 
 Controlling the space between paragraphs is done using the `margin` property in CSS. Typically, you'd adjust the top and bottom margins. For example:
 
@@ -53,17 +73,11 @@ p {
 }
 ```
 
-This CSS rule adds 10 pixels of space above and below each paragraph.
+This CSS rule adds 10 pixels of space above and below each paragraph. This does not affect the line spacing within the paragraph, which is controlled by the [line-height](#line-height) property.
 
-### 6. Styling First Line/First Letter
+<img src={pMarginsExample.src} />
 
-CSS provides pseudo-elements like `::first-line` and `::first-letter` that can be used to style the first line or the first letter of a paragraph, adding a nice typographic touch to your documents.
-
-### 7. Responsive Text
-
-For responsive design, use relative units like `em` or `vw` (viewport width) for text size, line height, and margins. This ensures that your text looks good on all screen sizes.
-
-### 8. Paragraph Indentation
+## Paragraph Indentation
 
 To indent the first line of each paragraph, use the `text-indent` property in CSS. For example:
 
@@ -73,14 +87,14 @@ p {
 }
 ```
 
-### 9. Text Overflow Handling
+<img src={textIndentExample.src} />
 
-In some cases, you might want to handle overflowing text in a paragraph, for which you can use the `overflow`, `text-overflow`, and `white-space` properties in CSS.
+## Text Wrapping and Overflow
 
-### 10. Custom Fonts and Styles
+In some cases, you might want to handle overflowing text in a paragraph, for which you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow" target="_blank">overflow</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow" target="_blank">text-overflow</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space" target="_blank">white-space</a> properties in CSS.
 
-Don’t forget to experiment with different fonts and styles (like bold, italic) to enhance the visual appeal of your paragraphs.
+<img src={textWrapExample.src} />
 
-### Conclusion
+## Conclusion
 
 Effectively using paragraphs and new lines in HTML/CSS involves a combination of HTML markup and CSS styling. By adjusting properties like alignment, line height, and spacing, you can create documents that are both visually appealing and easy to read. Always consider the overall design and readability when applying these styles.

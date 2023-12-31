@@ -243,9 +243,9 @@ export const navigation: Array<NavGroup> = [
     ],
   },
   {
-    title: 'Basics of HTML/CSS Documents',
+    title: 'Guide to HTML/CSS for print',
     links: [
-      { title: "Paragraphs and new lines", href: "/basics/Paragraphs_and_new_lines" },
+      { title: "Paragraphs and new lines", href: "/css-for-print/Paragraphs_and_new_lines" },
     ]
   },
   {
