@@ -19,13 +19,13 @@ This guide will walk you through a basic example of using Python to make an API 
 
 To get started, we'll need to create a document that we can use as a template. To do this, you'll first need to <a href="https://htmldocs.com/signup" target="_blank">create an account</a> on htmldocs. After, click on the **"Certificate"** template to create your first document.
 
-<img src={stepOne.src} />
+<img src={stepOne.src} alt="Selecting the Certificate template on the htmldocs projects page" />
 
 ## Add your first variable
 
 In our next step, we'll add our first variable. We want to dynamically generate the certificate and swap out the name of the recipient. To do this, we'll replace "Elmer J. Fudd" with a variable called `name`. Variables are defined using the `{{ }}` syntax.
 
-<img src={stepTwo.src} />
+<img src={stepTwo.src} alt="Replacing hard-coded text in the document with a variable" />
 
 <Note>
   Variables, loops, and conditions are defined using the Jinja2 templating language. <br/>
@@ -34,7 +34,7 @@ In our next step, we'll add our first variable. We want to dynamically generate 
 
 Variables can be swapped out with any value when you make an API call. To set a temporary value for the variable, you can click on the **"Variables & API"** tab and enter a value for the `name` variable.
 
-<img src={stepThree.src} />
+<img src={stepThree.src} alt="Adding a temporary value for the name variable" />
 
 ## Make your first API call
 
@@ -66,11 +66,11 @@ print(response.json())
 
 Be sure to replace `${API_KEY}` and `${PROJECT_ID}` with your API key and project ID. You can find your project ID in the URL of your project.
 
-<img src={stepFour.src} />
+<img src={stepFour.src} alt="Creating and finding the API key in the 'API Keys' modal" />
 
 Now if you open the URL returned in the response, you should see your generated document!
 
-<img src={result.src} />
+<img src={result.src} alt="The resulting document with the name dynamically replaced with the data from the API call" />
 
 ## Adding more variables
 
@@ -103,7 +103,7 @@ print(response.json())
 
 This yields the following result:
 
-<img src={resultTwo.src} />
+<img src={resultTwo.src} alt="The resulting document with the name and date dynamically replaced with the data from the API call" />
 
 ## Next steps
 That's it! You've successfully created your first API-generated document. As next steps, you can:
