@@ -235,12 +235,18 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: 'Introduction', href: '/' },
       { title: 'Quickstart', href: '/quickstart' },
-      { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
-      { title: 'Webhooks', href: '/webhooks' },
+      // { title: 'SDKs', href: '/sdks' },
+      // { title: 'Authentication', href: '/authentication' },
+      // { title: 'Pagination', href: '/pagination' },
+      // { title: 'Errors', href: '/errors' },
+      // { title: 'Webhooks', href: '/webhooks' },
     ],
+  },
+  {
+    title: 'Basics of HTML/CSS Documents',
+    links: [
+      { title: "Paragraphs and new lines", href: "/basics/Paragraphs_and_new_lines" },
+    ]
   },
   {
     title: 'API Reference',

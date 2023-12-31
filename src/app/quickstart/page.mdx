@@ -1,4 +1,9 @@
 import stepOne from '@/images/quickstart/step-1.png'
+import stepTwo from '@/images/quickstart/step-2.png'
+import stepThree from '@/images/quickstart/step-3.png'
+import stepFour from '@/images/quickstart/step-4.png'
+import result from '@/images/quickstart/result.png'
+import resultTwo from '@/images/quickstart/result-2.png'
 
 export const metadata = {
   title: 'Quickstart',
@@ -18,17 +23,89 @@ To get started, we'll need to create a document that we can use as a template. T
 
 ## Add your first variable
 
-In our next step, we'll add our first variable. We want to dynamically generate the certificate and swap out the name of the recipient. To do this, we'll replace "Elmer J. Fudd" with a variable called `name`.
+In our next step, we'll add our first variable. We want to dynamically generate the certificate and swap out the name of the recipient. To do this, we'll replace "Elmer J. Fudd" with a variable called `name`. Variables are defined using the `{{ }}` syntax.
+
+<img src={stepTwo.src} />
 
 <Note>
   Variables, loops, and conditions are defined using the Jinja2 templating language. <br/>
   You can learn more about Jinja2 <a href="https://jinja.palletsprojects.com/en/2.11.x/" target="_blank">here</a>.
 </Note>
 
-## What's next?
+Variables can be swapped out with any value when you make an API call. To set a temporary value for the variable, you can click on the **"Variables & API"** tab and enter a value for the `name` variable.
 
-Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:
+<img src={stepThree.src} />
 
-- [Grab your API key from the Protocol dashboard](#)
-- [Check out the Conversations endpoint](/conversations)
-- [Learn about the different error messages in Protocol](/errors)
+## Make your first API call
+
+Now we can generate our first dynamic document by making an API call. To do this, you'll first need to get an <a href="https://htmldocs.com/projects#api-keys">API Key</a> from the dashboard.
+
+In this example, we'll use Python to make the API call. You can use any language that supports HTTP requests. Create a new Python file and add the following code:
+
+```python
+import requests
+import json
+
+response = requests.post(
+  "https://api.htmldocs.com/v1/api/generate",
+  headers={
+    "Content-Type": "application/json",
+    "Authorization": "Bearer ${API_KEY}"
+  },
+  data=json.dumps({
+    "projectId": "${PROJECT_ID}",
+    "path": "index.html",
+    "context": {
+      "name": "Bugs Bunny"
+    }
+  })
+)
+
+print(response.json())
+```
+
+Be sure to replace `${API_KEY}` and `${PROJECT_ID}` with your API key and project ID. You can find your project ID in the URL of your project.
+
+<img src={stepFour.src} />
+
+Now if you open the URL returned in the response, you should see your generated document!
+
+<img src={result.src} />
+
+## Adding more variables
+
+As a next step, we can create a variable for the date by adding a new variable called `date` to our document. We can then update our API call to include a value for the `date` variable.
+
+```python
+import requests
+import json
+
+from datetime import datetime
+
+response = requests.post(
+  "https://api.htmldocs.com/v1/api/generate",
+  headers={
+    "Content-Type": "application/json",
+    "Authorization": "Bearer ${API_KEY}"
+  },
+  data=json.dumps({
+    "projectId": "${PROJECT_ID}",
+    "path": "index.html",
+    "context": {
+      "name": "Bugs Bunny",
+      "date": datetime.now().strftime("%B %d, %Y")
+    }
+  })
+)
+
+print(response.json())
+```
+
+This yields the following result:
+
+<img src={resultTwo.src} />
+
+## Next steps
+That's it! You've successfully created your first API-generated document. As next steps, you can:
+* Learn more about Jinja2 templating <a href="https://jinja.palletsprojects.com/en/2.11.x/" target="_blank">here</a>.
+* Refer to the <a href="http://localhost:3001/docs/documents/" target="_blank">/generate endpoint</a> docs to learn more about the API.
