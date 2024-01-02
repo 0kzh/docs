@@ -1,6 +1,7 @@
 import { Guides } from '@/components/Guides'
 import { Resources } from '@/components/Resources'
 import { HeroPattern } from '@/components/HeroPattern'
+import heroImage from "@/images/hero-image.jpg"
 
 export const metadata = {
   title: 'API Documentation',
@@ -23,21 +24,20 @@ Use the htmldocs API to automate generation of your document templates, such as 
   <Button href="/quickstart" arrow="right">
     <>Quickstart</>
   </Button>
-  <Button href="/sdks" variant="outline">
-    <>Explore SDKs</>
+  <Button href="/docs/documents" variant="outline">
+    <>API Reference</>
   </Button>
 </div>
 
-## Getting started {{ anchor: false }}
 
-To get started, create a new application in your [developer settings](#), then read about how to make requests for the resources you need to access using our HTTP APIs or dedicated client SDKs. When your integration is ready to go live, publish it to our [integrations directory](#) to reach the Protocol community. {{ className: 'lead' }}
+{/* ## Getting started {{ anchor: false }}
 
-<div className="not-prose">
-  <Button href="/sdks" variant="text" arrow="right">
-    <>Get your API key</>
-  </Button>
-</div>
+To get started, create a new application in your [developer settings](#), then read about how to make requests for the resources you need to access using our HTTP APIs or dedicated client SDKs. When your integration is ready to go live, publish it to our [integrations directory](#) to reach the Protocol community. {{ className: 'lead' }} */}
 
-<Guides />
+<img src={heroImage.src} alt="Hero image" />
 
-<Resources />
+<br />
+
+{/* <Guides />
+
+<Resources /> */}
