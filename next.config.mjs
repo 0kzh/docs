@@ -3,6 +3,7 @@ import nextMDX from '@next/mdx'
 import { recmaPlugins } from './src/mdx/recma.mjs'
 import { rehypePlugins } from './src/mdx/rehype.mjs'
 import { remarkPlugins } from './src/mdx/remark.mjs'
+import { withPlausibleProxy } from 'next-plausible'
 import withSearch from './src/mdx/search.mjs'
 
 const withMDX = nextMDX({
@@ -20,4 +21,4 @@ const nextConfig = {
   
 }
 
-export default withSearch(withMDX(nextConfig))
+export default withPlausibleProxy(withSearch(withMDX(nextConfig)));

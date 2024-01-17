@@ -6,6 +6,7 @@ import { Layout } from '@/components/Layout'
 import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 import { type Section } from '@/components/SectionProvider'
+import PlausibleProvider from 'next-plausible'
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +31,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
+      <head>
+        <PlausibleProvider domain="htmldocs.com" />
+      </head>
       <body className="flex min-h-full bg-white antialiased dark:bg-zinc-900">
         <Providers>
           <div className="w-full">
