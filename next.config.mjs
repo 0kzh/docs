@@ -21,4 +21,4 @@ const nextConfig = {
   
 }
 
-export default withPlausibleProxy(withSearch(withMDX(nextConfig)));
+export default withPlausibleProxy()(withSearch(withMDX(nextConfig)));
