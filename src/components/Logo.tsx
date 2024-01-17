@@ -1,4 +1,13 @@
+import { useUniqueInlineId } from '@inline-svg-unique-id/react';
+
 export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
+  
+  const linearGradient1 = useUniqueInlineId();
+  const linearGradient2 = useUniqueInlineId();
+  const linearGradient3 = useUniqueInlineId();
+  const linearGradient4 = useUniqueInlineId();
+  const linearGradient5 = useUniqueInlineId();
+
   return (
     <svg
       width="100"
@@ -9,7 +18,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
     >
       <path
         d="M38.8966 48.0125H10.8911C10.4784 48.0125 10.0827 47.8486 9.79091 47.5568C9.49913 47.265 9.33521 46.8693 9.33521 46.4567V12.2277C9.33521 11.815 9.49913 11.4193 9.79091 11.1275C10.0827 10.8357 10.4784 10.6718 10.8911 10.6718H29.5614L40.4525 21.5629V46.4567C40.4525 46.8693 40.2885 47.265 39.9968 47.5568C39.705 47.8486 39.3092 48.0125 38.8966 48.0125Z"
-        fill="url(#paint0_linear_1535_30933)"
+        fill="url(#linearGradient1)"
         stroke="#01543A"
         strokeWidth="2.0531"
         strokeLinecap="round"
@@ -33,7 +42,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
       >
         <path
           d="M38.8966 48.0125H10.8911C10.4784 48.0125 10.0827 47.8486 9.79091 47.5568C9.49913 47.265 9.33521 46.8693 9.33521 46.4567V12.2277C9.33521 11.815 9.49913 11.4193 9.79091 11.1275C10.0827 10.8357 10.4784 10.6718 10.8911 10.6718H29.5614L40.4525 21.5629V46.4567C40.4525 46.8693 40.2885 47.265 39.9968 47.5568C39.705 47.8486 39.3092 48.0125 38.8966 48.0125Z"
-          fill="url(#paint1_linear_1535_30933)"
+          fill="url(#linearGradient2)"
           stroke="#01543A"
           strokeWidth="2.0531"
           strokeLinecap="round"
@@ -56,7 +65,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
       </g>
       <path
         d="M47.1089 43.5642H19.1034C18.6908 43.5642 18.295 43.4002 18.0032 43.1085C17.7115 42.8167 17.5475 42.4209 17.5475 42.0083V7.77931C17.5475 7.36667 17.7115 6.97093 18.0032 6.67915C18.295 6.38737 18.6908 6.22345 19.1034 6.22345H37.7738L48.6648 17.1145V42.0083C48.6648 42.4209 48.5009 42.8167 48.2091 43.1085C47.9173 43.4002 47.5216 43.5642 47.1089 43.5642Z"
-        fill="url(#paint2_linear_1535_30933)"
+        fill="url(#linearGradient3)"
         stroke="#057A55"
         strokeWidth="2.0531"
         strokeLinecap="round"
@@ -64,8 +73,8 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
       />
       <path
         d="M37.7738 6.22345V17.1145H48.6648"
-        fill="url(#paint3_linear_1535_30933)"
-        stroke="url(#paint4_linear_1535_30933)"
+        fill="url(#linearGradient4)"
+        stroke="url(#linearGradient5)"
         strokeWidth="2.0531"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -109,7 +118,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
       />
       <defs>
         <linearGradient
-          id="paint0_linear_1535_30933"
+          id="linearGradient1"
           x1="35.5"
           y1="45.5"
           x2="11"
@@ -120,7 +129,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
           <stop offset="1" stopColor="#086548" />
         </linearGradient>
         <linearGradient
-          id="paint1_linear_1535_30933"
+          id="linearGradient2"
           x1="12"
           y1="13"
           x2="24.8938"
@@ -131,7 +140,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
           <stop offset="1" stopColor="#01543A" />
         </linearGradient>
         <linearGradient
-          id="paint2_linear_1535_30933"
+          id="linearGradient3"
           x1="45"
           y1="44"
           x2="23"
@@ -142,7 +151,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
           <stop offset="1" stopColor="#1D9A72" />
         </linearGradient>
         <linearGradient
-          id="paint3_linear_1535_30933"
+          id="linearGradient4"
           x1="38"
           y1="17"
           x2="45"
@@ -153,7 +162,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
           <stop offset="1" stopColor="#055C41" />
         </linearGradient>
         <linearGradient
-          id="paint4_linear_1535_30933"
+          id="linearGradient5"
           x1="38"
           y1="17.5"
           x2="41.5"
