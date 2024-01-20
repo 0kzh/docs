@@ -1,0 +1,69 @@
+import breakBeforeExample from '@/images/css-for-print/page-breaks/break-before.png'
+import breakAfterExample from '@/images/css-for-print/page-breaks/break-after.png'
+import breakAfterSectionExample from '@/images/css-for-print/page-breaks/break-after-section.png'
+import breakInsideBeforeExample from '@/images/css-for-print/page-breaks/break-inside-before.png'
+import breakInsideAfterExample from '@/images/css-for-print/page-breaks/break-inside-after.png'
+
+export const metadata = {
+  title: 'Page breaks',
+  description:
+    'How to segment your content from a continuous HTML document to individual pages.',
+}
+
+# Page breaks in HTML/CSS
+
+Page breaks in HTML/CSS are critical for controlling how content is split across pages in printable formats. The CSS properties `break-before`, `break-after`, and `break-inside` are primarily used to manage these breaks.
+
+**Page Break Properties**
+* `break-before`: This property adds a page break before an element. Default `auto`.
+* `break-after`: This property adds a page break after an element. Default `auto`.
+* `break-inside`: This property avoids a page break inside an element. Default `auto`.
+
+## Breaking Before an Element
+
+To add a page break before an element, you can use the `page-break-before` property. This can be useful when you want to ensure that a new section starts at the top of a new page.
+
+```css {{ title: 'CSS for adding breaks before elements' }}
+h2 {
+  break-before: page;
+}
+```
+In the above example, a page break will always be added before each `<h2>` element.
+
+<img src={breakBeforeExample.src} alt="Example of adding page breaks before each h2 element" />
+
+## Breaking After an Element
+
+To add a page break after an element, you can use the `break-after` property. A common use-case for this is to create a custom pagebreak similar to `<br />` but for breaking pages instead of lines.
+
+```css {{ title: 'CSS for adding breaks after elements' }}
+.pagebreak {
+  break-after: page;
+}
+```
+
+Here's our custom pagebreak element in use:
+
+<img src={breakAfterExample.src} alt="Example of using a custom pagebreak element to insert a page break" />
+
+Alternatively, you can define a page/section wrapper component with this property to neatly divide your document.
+
+<img src={breakAfterSectionExample.src} alt="Inserting page breaks after each section" />
+
+## Avoiding Breaks Inside an Element
+
+To avoid a page break inside an element, you can use the `break-inside` property. This can be useful when you want to ensure that an element, such as a paragraph or a div, is not split across two pages.
+
+```css {{ title: 'CSS for avoiding breaks inside elements' }}
+.avoid-break {
+  break-inside: avoid;
+}
+```
+In the above example, a page break will be avoided inside each element with the `.avoid-break` class.
+
+**Without `break-inside: avoid`**
+<img src={breakInsideBeforeExample.src} style={{ marginTop: -24 }} alt="A code block being cut in half due to a page break" />
+
+**With `break-inside: avoid`**
+<img src={breakInsideAfterExample.src} style={{ marginTop: -24 }} alt="A code block avoiding page break by setting the break-inside property" />
+

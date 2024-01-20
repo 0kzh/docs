@@ -246,6 +246,7 @@ export const navigation: Array<NavGroup> = [
     title: 'Guide to HTML/CSS for print',
     links: [
       { title: "Paragraphs and new lines", href: "/css-for-print/Paragraphs_and_new_lines" },
+      { title: "Page breaks", href: "/css-for-print/Page_breaks" },
     ]
   },
   {
