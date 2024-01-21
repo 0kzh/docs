@@ -248,6 +248,7 @@ export const navigation: Array<NavGroup> = [
       { title: "Paragraphs and new lines", href: "/css-for-print/Paragraphs_and_new_lines" },
       { title: "Page breaks", href: "/css-for-print/Page_breaks" },
       { title: "Page margins", href: "/css-for-print/Page_margins" },
+      { title: "Page size", href: "/css-for-print/Page_size" },
     ]
   },
   {

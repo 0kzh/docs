@@ -1,0 +1,57 @@
+import pageSizeExample from '@/images/css-for-print/page-size/page-size.png'
+
+export const metadata = {
+  title: 'Page size',
+  description:
+    'Guide on how to control page size when using HTML/CSS to build documents for print',
+}
+
+# Page size in HTML/CSS
+
+By default, the size of a page is 8.5 inches by 11 inches (US Letter).
+You can set the page size using the `size` property on the `@page` selector.
+
+For example, to set the page size to A4, you can use the following CSS:
+
+```css
+@page {
+  size: A4;
+}
+```
+
+Alternatively, you can manually specify the dimensions of the page using any measurement unit (e.g. `in`, `cm`, `mm`, `px`, `pt`).
+  
+```css
+@page {
+  size: 11in 17in;
+}
+```
+
+Lastly, you can change the orientation of the page by appending `landscape` or `portrait` to the `size` property.
+
+```css
+@page {
+  size: A4 landscape;
+}
+```
+
+<img src={pageSizeExample.src} alt="Changing a page size to A4 landscape" />
+
+## Pre-defined page sizes
+
+Below is a list of all the pre-defined page sizes that you can use in the `size` property along with their dimensions.
+
+| Size | Dimensions |
+| ---- | ---------- |
+| A3 | 297mm x 420mm |
+| A4 | 210mm x 297mm |
+| A5 | 148mm x 210mm |
+| B4 | 250mm x 353mm |
+| B5 | 176mm x 250mm |
+| JIS-B4 | 257mm x 364mm |
+| JIS-B5 | 182mm x 257mm |
+| letter | 8.5in x 11in |
+| legal | 8.5in x 14in |
+| ledger | 11in x 17in |
+
+
