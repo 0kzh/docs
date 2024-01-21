@@ -4,6 +4,7 @@ import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 
 import '@/styles/tailwind.css'
+import '@/styles/global.css'
 import { type Metadata } from 'next'
 import { type Section } from '@/components/SectionProvider'
 import PlausibleProvider from 'next-plausible'
