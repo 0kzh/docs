@@ -254,7 +254,7 @@ export const navigation: Array<NavGroup> = [
   {
     title: 'API Reference',
     links: [
-      { title: 'Documents', href: '/documents' },
+      { title: 'Generate a document', href: '/documents' },
     ],
   },
 ]
