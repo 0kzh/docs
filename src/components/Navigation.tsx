@@ -249,6 +249,7 @@ export const navigation: Array<NavGroup> = [
       { title: "Page breaks", href: "/css-for-print/Page_breaks" },
       { title: "Page margins", href: "/css-for-print/Page_margins" },
       { title: "Page size", href: "/css-for-print/Page_size" },
+      { title: "Font families, sizes, and styles", href: "/css-for-print/Font_families_sizes_styles" },
     ]
   },
   {
