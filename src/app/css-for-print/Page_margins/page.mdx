@@ -1,0 +1,92 @@
+import rectoVersoExample from '@/images/css-for-print/page-margins/recto-verso.png'
+import fullSizeCoverExample from '@/images/css-for-print/page-margins/full-size-cover.png'
+
+export const metadata = {
+  title: 'Page margins',
+  description:
+    'Guide on how to control page margins and bleed when using HTML/CSS to build documents for print',
+}
+
+# Page margins in HTML/CSS
+
+Page margins can be set by setting the `margin` property on the `@page` selector.
+By default, margins on each side are set to 0.39 inches.
+
+```css
+@page {
+    margin: 0.39in;
+}
+```
+
+When setting margins, we recommend using physical units (`in/cm/mm`) instead of digital ones (`px/em/rem`).
+
+For more fine-grained control, we can also set different margins for each side of the page:
+
+```css
+@page {
+    margin-top: 1in;
+    margin-right: 0.5in;
+    margin-bottom: 1.5in;
+    margin-left: 0.8in;
+}
+```
+
+## Different margins for odd/even pages
+
+If you're designing a document for print, like a book or brochure, you might want to set larger margins near the fold. To do this, you can use different selectors for the left and right pages. This is also known as recto/verso.
+
+```css
+@page :left {
+    margin-left: 2in;
+    margin-right: 0.5in;
+}
+
+@page :right {
+    margin-left: 0.5in;
+    margin-right: 2in;
+}
+```
+
+<img src={rectoVersoExample.src} alt="Example of different page margins for left/right pages" />
+
+## Full-size background cover
+
+To set an image to take up the entire size of the page, you can remove the margins. You also need to remove the default margins on the `<body>` tag.
+
+
+```html {{ title: 'index.html' }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="page cover"></div>
+</body>
+
+</html>
+```
+
+```css {{ title: 'main.css' }}
+@page {
+  margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+.page {
+    height: calc(100vh);
+}
+
+.page.cover{
+    background: url("title.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+```
+
+<img src={fullSizeCoverExample.src} alt="Setting an image background to take up the entire paper size" />
