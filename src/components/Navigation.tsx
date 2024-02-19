@@ -243,6 +243,12 @@ export const navigation: Array<NavGroup> = [
     ],
   },
   {
+    title: 'API Reference',
+    links: [
+      { title: 'Generate a document', href: '/documents' },
+    ],
+  },
+  {
     title: 'Guide to HTML/CSS for print',
     links: [
       { title: "Paragraphs and new lines", href: "/css-for-print/Paragraphs_and_new_lines" },
@@ -250,13 +256,8 @@ export const navigation: Array<NavGroup> = [
       { title: "Page margins", href: "/css-for-print/Page_margins" },
       { title: "Page size", href: "/css-for-print/Page_size" },
       { title: "Font families, sizes, and styles", href: "/css-for-print/Font_families_sizes_styles" },
+      { title: "Multiple columns", href: "/css-for-print/Multiple_columns" },
     ]
-  },
-  {
-    title: 'API Reference',
-    links: [
-      { title: 'Generate a document', href: '/documents' },
-    ],
   },
 ]
 
